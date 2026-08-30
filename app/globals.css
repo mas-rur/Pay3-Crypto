@@ -12,28 +12,29 @@
 }
 
 :root {
-  /* surfaces */
-  --bg: #0b0c09;
-  --surface: #14150f;
-  --surface-2: #1b1c14;
-  --paper: #f2efe4;
-  --paper-dim: #dad6c4;
+  /* surfaces — light page, with the receipt card kept as a dark
+     "carbon copy" so it still pops instead of going flat white-on-white */
+  --bg: #f5f6f1;
+  --surface: #ffffff;
+  --surface-2: #ecede6;
+  --paper: #14150f;
+  --paper-dim: #3a3c31;
 
   /* ink */
-  --ink: #ede9dd;
-  --ink-dim: #a5a293;
-  --ink-faint: #6f6d61;
-  --ink-on-paper: #14150f;
+  --ink: #1b1c16;
+  --ink-dim: #5b5c51;
+  --ink-faint: #8b8c7e;
+  --ink-on-paper: #f1eee4;
 
   /* accents */
-  --green: #3e7a5c;
-  --green-bright: #5bbf90;
-  --brass: #c7a667;
-  --stamp-red: #a5432f;
+  --green: #2d6b4c;
+  --green-bright: #2f9e6b;
+  --brass: #8c6a2e;
+  --stamp-red: #99402c;
 
   /* lines */
-  --line: rgba(237, 233, 221, 0.12);
-  --line-strong: rgba(237, 233, 221, 0.22);
+  --line: rgba(27, 28, 22, 0.08);
+  --line-strong: rgba(27, 28, 22, 0.16);
 
   --radius-sm: 8px;
   --radius: 14px;
@@ -60,8 +61,8 @@ body {
 /* subtle noise-free grain via layered radial gradients, kept very quiet */
 body {
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(91, 191, 144, 0.05), transparent 40%),
-    radial-gradient(circle at 85% 0%, rgba(199, 166, 103, 0.06), transparent 45%);
+    radial-gradient(circle at 15% 10%, rgba(47, 158, 107, 0.07), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(140, 106, 46, 0.08), transparent 45%);
   background-attachment: fixed;
 }
 
@@ -112,7 +113,7 @@ img, svg { display: block; max-width: 100%; }
   top: 0;
   z-index: 40;
   backdrop-filter: blur(10px);
-  background: rgba(11, 12, 9, 0.72);
+  background: rgba(245, 246, 241, 0.78);
   border-bottom: 1px solid var(--line);
 }
 
@@ -291,7 +292,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--ink);
 }
 
-.btn-outline:hover { border-color: var(--green-bright); color: var(--green-bright); }
+.btn-outline:hover { border-color: var(--green); color: var(--green); }
 
 .btn-ghost {
   background: var(--surface);
@@ -347,7 +348,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--ink-on-paper);
   border-radius: var(--radius);
   padding: 28px 28px 22px;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 48px -18px rgba(20, 21, 15, 0.28);
 }
 
 .receipt-head {
@@ -441,7 +442,7 @@ img, svg { display: block; max-width: 100%; }
 .receipt-foot a {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--green);
+  color: var(--green-bright);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -454,8 +455,8 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.08em;
-  color: var(--green);
-  border: 1.5px solid var(--green);
+  color: var(--green-bright);
+  border: 1.5px solid var(--green-bright);
   border-radius: 5px;
   padding: 3px 7px;
   transform: rotate(-4deg);
@@ -475,9 +476,10 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
-.copy-btn:hover { opacity: 1; background: rgba(0, 0, 0, 0.06); }
-.copy-btn.on-dark:hover { background: var(--surface-2); }
+.copy-btn:hover { opacity: 1; background: rgba(27, 28, 22, 0.08); }
+.copy-btn.on-dark:hover { background: var(--surface-2); color: var(--paper); }
 .copy-btn.copied { color: var(--green); opacity: 1; }
+.copy-btn.on-dark.copied { color: var(--green-bright); opacity: 1; }
 
 /* ---------- section headers ---------- */
 
@@ -528,7 +530,7 @@ img, svg { display: block; max-width: 100%; }
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--green-bright);
+  color: var(--green);
   padding-top: 3px;
 }
 
@@ -572,10 +574,15 @@ img, svg { display: block; max-width: 100%; }
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 14px 16px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 1px 2px rgba(20, 21, 15, 0.04);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.chain-chip:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.chain-chip:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(20, 21, 15, 0.08);
+}
 
 .chain-dot {
   width: 10px;
@@ -612,6 +619,7 @@ img, svg { display: block; max-width: 100%; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px 26px;
+  box-shadow: 0 1px 3px rgba(20, 21, 15, 0.05);
 }
 
 .wallet-cta .url {

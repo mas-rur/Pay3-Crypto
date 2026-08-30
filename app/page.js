@@ -14,15 +14,15 @@ function truncate(addr) {
 }
 
 const CHAINS = [
-  { name: 'Ethereum', id: '1', color: '#8FA3FF' },
-  { name: 'Polygon', id: '137', color: '#B79CFF' },
-  { name: 'BNB Chain', id: '56', color: '#F0C64C' },
-  { name: 'Arbitrum', id: '42161', color: '#5CC2F2' },
-  { name: 'Optimism', id: '10', color: '#FF6A5C' },
-  { name: 'Base', id: '8453', color: '#5C8CFF' },
-  { name: 'Avalanche', id: '43114', color: '#F27171' },
-  { name: 'Linea', id: '59144', color: '#63E0D6' },
-  { name: 'Fantom', id: '250', color: '#5FCBEE' },
+  { name: 'Ethereum', id: '1', color: '#5B7CFA' },
+  { name: 'Polygon', id: '137', color: '#8247E5' },
+  { name: 'BNB Chain', id: '56', color: '#D6A012' },
+  { name: 'Arbitrum', id: '42161', color: '#2E96D6' },
+  { name: 'Optimism', id: '10', color: '#E8432F' },
+  { name: 'Base', id: '8453', color: '#2F5FE0' },
+  { name: 'Avalanche', id: '43114', color: '#D6392F' },
+  { name: 'Linea', id: '59144', color: '#1FA89B' },
+  { name: 'Fantom', id: '250', color: '#1D9FC7' },
 ];
 
 const FEATURES = [
@@ -155,7 +155,7 @@ export default function Home() {
                     <span className="label">Ticker</span>
                     <div className="value-group">
                       <span className="value">{TICKER}</span>
-                      <CopyButton value={TICKER} label="ticker" />
+                      <CopyButton value={TICKER} label="ticker" dark />
                     </div>
                   </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
                       <span className="value" title={CONTRACT}>
                         {truncate(CONTRACT)}
                       </span>
-                      <CopyButton value={CONTRACT} label="contract address" />
+                      <CopyButton value={CONTRACT} label="contract address" dark />
                     </div>
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export default function Home() {
             <div className="contact-row">
               <MailIcon width={14} height={14} />
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <CopyButton value={EMAIL} label="email address" dark />
+              <CopyButton value={EMAIL} label="email address" />
             </div>
           </div>
 
